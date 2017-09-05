@@ -1,5 +1,6 @@
 <?php 
 echo "nodame"; 
+echo("lans");
 ?>
 <!DOCTYPE html>
 <html>
