@@ -162,10 +162,39 @@ else {
 			$("#parteCuerpo").text(title);
 		});
 
-		$(".land").click(function(){
-			console.log($(this));
-			
-		});
+		function selectLand(ctrl){
+			console.log($(ctrl));
+			var paths = $('.mapp > svg > g').find('path');
+			$.each(paths, function(i, v){
+				$(v).removeClass('active');
+			});
+
+			$(ctrl).addClass('active');
+			var myValue = $(ctrl).attr('id');
+
+			var title = $(this).attr("title");
+			$("#localSelected").text(title);
+
+			$.getJSON( "datos/infedo.json", function( data ) {
+	          var items = [];
+	          var opciones = "";
+	          	console.log(data);
+	          	$.each( data.data, function( key, val ) {
+	          		console.log(val);
+					if(myValue == v.id){
+						$("#m2finales").val(v.superficie);
+
+						var value = $("#m2finales").val();
+						var precio = $("#precioxm2").text();
+				    	var total1 = value * precio;
+
+				    	$("#preciototal").html(total1);
+				    	$("#preciocontado").html(total1);
+						$('#porcentaje').change();
+					}
+				});
+	      	});
+		}
 
 		$('#porcentaje').change(function(){
 			$('#valorporcentaje').val($(this).val());
