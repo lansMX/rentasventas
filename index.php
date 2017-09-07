@@ -65,9 +65,6 @@ else {
 			<option value="3N">3N</option>
 		</select>
 		<div class="mapp">
-
-			
-
 		</div>
 		<div class="calculador">
 				<form name="ejemplo">
@@ -152,8 +149,6 @@ else {
 		</div>
 	</div>
 
-
-
 	<script type="text/javascript">
 
 		$(document).ready(function(){
@@ -168,30 +163,8 @@ else {
 		});
 
 		$(".land").click(function(){
-			var paths = $('.mapp > svg > g').find('path');
-			$.each(paths, function(i, v){
-				$(v).removeClass('active');
-			});
-
-			$(this).addClass('active');
-			var myValue = $(this).attr('id');
-
-			var title = $(this).attr("title");
-			$("#localSelected").text(title);
-
-			$.each(obj.data, function(i, v){
-				if(myValue == v.id){
-					$("#m2finales").val(v.superficie);
-
-					var value = $("#m2finales").val();
-					var precio = $("#precioxm2").text();
-		    	var total1 = value * precio;
-
-		    	$("#preciototal").html(total1);
-		    	$("#preciocontado").html(total1);
-					$('#porcentaje').change();
-				}
-			});
+			console.log($(this));
+			
 		});
 
 		$('#porcentaje').change(function(){
@@ -210,8 +183,11 @@ else {
 			$("#preciomensual").html(pagomensual);
 		}
 
-		var text = '{"data":[{"superficie":"500","id":"MX-AGU"},{"superficie":"600","id":"MX-BCN"},{"superficie":"700","id":"MX-BCS"},{"superficie":"800","id":"MX-CAM"},{"superficie":"900","id":"MX-CHP"},{"superficie":"100","id":"MX-CHH"},{"superficie":"200","id":"MX-COA"},{"superficie":"300","id":"MX-OCL"},{"superficie":"400","id":"MX-DIF"},{"superficie":"1500","id":"MX-DUR"},{"superficie":"2500","id":"MX-GUA"},{"superficie":"2500","id":"MX-GRO"},{"superficie":"5003","id":"MX-H"},{"superficie":"3500","id":"MX-JAL"},{"superficie":"4500","id":"MX-MEX"},{"superficie":"5500","id":"MX-MIC"},{"superficie":"6500","id":"MX-MOR"},{"superficie":"7500","id":"MX-NAY"},{"superficie":"8500","id":"MX-NLE"},{"superficie":"9500","id":"MX-OAX"},{"superficie":"5430","id":"MX-PUE"},{"superficie":"11500","id":"MX-QUE"},{"superficie":"12500","id":"MX-ROO"},{"superficie":"34500","id":"MX-SLP"},{"superficie":"55400","id":"MX-SIN"},{"superficie":"531500","id":"MX-SON"},{"superficie":"500","id":"MX-TAB"},{"superficie":"500","id":"MX-TAM"},{"superficie":"23500","id":"MX-TLA"},{"superficie":"45500","id":"MX-VER"},{"superficie":"34500","id":"MX-YUC"},{"superficie":"500","id":"MX-ZAC"}]}';
-		var obj = JSON.parse(text);
+		// var text = '{"data":[{"superficie":"500","id":"MX-AGU"},{"superficie":"600","id":"MX-BCN"},{"superficie":"700","id":"MX-BCS"},{"superficie":"800","id":"MX-CAM"},{"superficie":"900","id":"MX-CHP"},{"superficie":"100","id":"MX-CHH"},{"superficie":"200","id":"MX-COA"},{"superficie":"300","id":"MX-OCL"},{"superficie":"400","id":"MX-DIF"},{"superficie":"1500","id":"MX-DUR"},{"superficie":"2500","id":"MX-GUA"},{"superficie":"2500","id":"MX-GRO"},{"superficie":"5003","id":"MX-H"},{"superficie":"3500","id":"MX-JAL"},{"superficie":"4500","id":"MX-MEX"},{"superficie":"5500","id":"MX-MIC"},{"superficie":"6500","id":"MX-MOR"},{"superficie":"7500","id":"MX-NAY"},{"superficie":"8500","id":"MX-NLE"},{"superficie":"9500","id":"MX-OAX"},{"superficie":"5430","id":"MX-PUE"},{"superficie":"11500","id":"MX-QUE"},{"superficie":"12500","id":"MX-ROO"},{"superficie":"34500","id":"MX-SLP"},{"superficie":"55400","id":"MX-SIN"},{"superficie":"531500","id":"MX-SON"},{"superficie":"500","id":"MX-TAB"},{"superficie":"500","id":"MX-TAM"},{"superficie":"23500","id":"MX-TLA"},{"superficie":"45500","id":"MX-VER"},{"superficie":"34500","id":"MX-YUC"},{"superficie":"500","id":"MX-ZAC"}]}';
+		// var obj = JSON.parse(text);	
+
+		
+     
 
 		$("#tipoTerreno").change(function(){
 			if($(this).val() == 1){
@@ -238,7 +214,6 @@ else {
 			switch (p) {
 				case "PB":
 					$(".mapp").empty();
-
 					$(".mapp").append(n.n0);
 					break;
 				case "1N":
@@ -261,12 +236,12 @@ else {
           var idMap = "<?= $_GET['map']; ?>";
           $.each( data.catalogo, function( key, val ) {
           	if (val.id == idMap) {
-          		opciones = 	val.codesvg[0].n1;
+          		opciones = 	val.codesvg[0].n0;
           		asipararapido = val.codesvg[0];
           	}
           	
           });
-         
+          // <text class='label' id='parteCuerpo' x='10' y='390'>México</text>
           $(".mapp").append(opciones);
 
         });
