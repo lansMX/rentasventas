@@ -179,8 +179,8 @@ else {
 	          var items = [];
 	          var opciones = "";
 	          	console.log(data);
-	          	$.each( data.data, function( key, val ) {
-	          		console.log(val);
+	          	$.each( data, function( key, v ) {
+	          		
 					if(myValue == v.id){
 						$("#m2finales").val(v.superficie);
 
