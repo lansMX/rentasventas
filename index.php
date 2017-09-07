@@ -178,21 +178,23 @@ else {
 			$.getJSON( "datos/infedo.json", function( data ) {
 	          var items = [];
 	          var opciones = "";
-	          	console.log(data);
-	          	$.each( data, function( key, v ) {
-	          		
-					if(myValue == v.id){
-						$("#m2finales").val(v.superficie);
+
+	          	for (var i = 0; i < data.data.length; i++) {
+          			
+          			if(myValue == data.data[i].id){
+						console.log(data.data[i].superficie);
+						$("#m2finales").val(data.data[i].superficie);
 
 						var value = $("#m2finales").val();
 						var precio = $("#precioxm2").text();
 				    	var total1 = value * precio;
-
+				    	console.log(total1);
 				    	$("#preciototal").html(total1);
 				    	$("#preciocontado").html(total1);
 						$('#porcentaje').change();
 					}
-				});
+          		}
+
 	      	});
 		}
 
