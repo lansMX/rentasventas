@@ -1,0 +1,11 @@
+g{
+  fill: #b30000;
+}
+
+g:hover{
+  /*fill: #b30000;*/
+}
+
+path{
+  stroke-width: 0;
+}

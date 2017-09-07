@@ -1,0 +1,9 @@
+.land{
+  fill: #CCC;
+  stroke: #FFF;
+  stroke-width: 0.5;
+}
+
+.land:hover{fill: #b30000;}
+.land.active{fill: #000;}
+.land.success{fill: #006847;}
