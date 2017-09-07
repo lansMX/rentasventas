@@ -4,10 +4,10 @@
     <title>Menú Complejos</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <style media="screen">
       body{
-        background-color: #B30000;
+        background-color: #3e3e3e;
         color: #FFF;
         font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
       }
@@ -36,7 +36,7 @@
       }
 
 
-      .contenedorfoto {
+      .contenedorfoto {         
          float:left;
          width:200px;
          height:180px;
@@ -49,6 +49,10 @@
          text-align:center;
       }
 
+      #menu{
+        display: inline-block;
+      }
+
       .contenedorfoto > a > img{
         width: 200px;
       }
@@ -59,45 +63,34 @@
     <div class="container">
       <h1 style="font-weight:normal">Renta y venta</h1>
       <hr>
-      <div class="contenedorfoto">
-        <a href="javascript:void(0)">
-          <img src="http://www.periodicocentral.mx/2017/media/k2/items/src/8ee32f4a7dc339e385d15d54d4e3744e.jpg" border="0" alt=""/>
-        </a>
-        <br/>
-        <span>Plaza 1</span>
-      </div>
+      <div id="menu"></div>
 
-      <div class="contenedorfoto">
-        <a href="javascript:void(0)">
-          <img src="images/4.jpg" border="0" alt=""/>
-        </a>
-        <br/>
-        <span>Plaza 2</span>
-      </div>
+      <script type="text/javascript">
+        $.getJSON( "datos/catalogo.json", function( data ) {
+          var items = [];
+          var opciones = "";
+          console.log(data.catalogo);
 
-      <div class="contenedorfoto">
-        <a href="javascript:void(0)">
-          <img src="images/4.jpg" border="0" alt=""/>
-        </a>
-        <br/>
-        <span>Plaza 3</span>
-      </div>
+          $.each( data.catalogo, function( key, val ) {
 
-      <div class="contenedorfoto">
-        <a href="javascript:void(0)">
-          <img src="images/4.jpg" border="0" alt=""/>
-        </a>
-        <br/>
-        <span>Plaza 4</span>
-      </div>
+            opciones += "<div class='contenedorfoto'>" +
+                "<a href='javascript:void(0)' onclick='moreDetails("+val.id+")'>" +
+                  "<img src='" + val.logo + "' border='0' alt=''/>" +
+                "</a>" +
+                "<br/>" +
+                "<span>" + val.titulo + "</span>" +
+              "</div>";
+          });
+         
+          $("#menu").append(opciones);
 
-      <div class="contenedorfoto">
-        <a href="javascript:void(0)">
-          <img src="images/4.jpg" border="0" alt=""/>
-        </a>
-        <br/>
-        <span>Plaza 5</span>
-      </div>
+        });
+
+        function moreDetails(id){
+          window.location.href = "index.php?map="+id;
+        }
+      </script>
+      
 
     </div>
   </body>
