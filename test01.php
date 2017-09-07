@@ -134,19 +134,33 @@
  
 <!-- imagen 2 -->
 		<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 997.35 458"><title>test02</title>
+		
 		<rect clasS="cls-1" x="79.35" y="9" width="909" height="440" fill="#fff"/>
+		
 		<path d="M1207,150V572H316V150h891m18-18H298V590h927V132Z" transform="translate(-227.65 -132)"/>
+		
 		<rect clasS="cls-1" x="165.35" y="61" width="52" height="89" fill="#fff"/>
+		
 		<path d="M482.82,153H355.18a2.18,2.18,0,0,0-2.18,2.18V319.82a2.18,2.18,0,0,0,2.18,2.18H482.82a2.18,2.18,0,0,0,2.18-2.18V155.18a2.18,2.18,0,0,0-2.18-2.18Z" transform="translate(-227.65 -132)"/>
+		
 		<rect clasS="cls-1" x="315.35" y="61" width="52" height="89" fill="#fff"/>
+		
 		<polygon class="land" points="407.35 21 275.35 21 275.35 190 407.35 190 407.35 21 407.35 21"/>
+		
 		<rect clasS="cls-1" x="457.35" y="62" width="52" height="89" fill="#fff"/>
+		
 		<polygon class="land" points="549.35 22 417.35 22 417.35 191 549.35 191 549.35 22 549.35 22"/>
+		
 		<rect clasS="cls-1" x="601.35" y="63" width="52" height="89" fill="#fff"/>
+		
 		<polygon class="land" points="693.35 23 561.35 23 561.35 192 693.35 192 693.35 23 693.35 23"/>
+		
 		<rect clasS="cls-1" x="746.35" y="63" width="52" height="89" fill="#fff"/>
+		
 		<polygon class="land" points="838.35 23 706.35 23 706.35 192 838.35 192 838.35 23 838.35 23"/>
+		
 		<rect clasS="cls-1" x="161.35" y="306" width="52" height="89" fill="#fff"/>
+		
 		<polygon class="land" points="253.35 266 121.35 266 121.35 435 253.35 435 253.35 266 253.35 266"/>
 		<rect clasS="cls-1" x="316.35" y="307" width="52" height="89" fill="#fff"/>
 		<polygon class="land" points="408.35 267 276.35 267 276.35 436 408.35 436 408.35 267 408.35 267"/>
