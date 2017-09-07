@@ -127,6 +127,98 @@
 		{"superficie":"500","id":"MX-ZAC",
 		"precioxmt":"500",
 		"mtsdisponibles":"500"
+		},
+
+
+
+		{"superficie":"45500","id":"PB-01",
+		"precioxmt":"45500",
+		"mtsdisponibles":"45500"
+		},
+		{"superficie":"34500","id":"PB-02",
+		"precioxmt":"34500",
+		"mtsdisponibles":"34500"
+		},
+		{"superficie":"500","id":"PB-03",
+		"precioxmt":"500",
+		"mtsdisponibles":"500"
+		},
+		{"superficie":"45500","id":"PB-04",
+		"precioxmt":"45500",
+		"mtsdisponibles":"45500"
+		},
+		{"superficie":"34500","id":"PB-05",
+		"precioxmt":"34500",
+		"mtsdisponibles":"34500"
+		},
+		{"superficie":"500","id":"PB-06",
+		"precioxmt":"500",
+		"mtsdisponibles":"500"
+		},
+		{"superficie":"45500","id":"PB-07",
+		"precioxmt":"45500",
+		"mtsdisponibles":"45500"
+		},
+		{"superficie":"34500","id":"PB-08",
+		"precioxmt":"34500",
+		"mtsdisponibles":"34500"
+		},
+		{"superficie":"500","id":"PB-09",
+		"precioxmt":"500",
+		"mtsdisponibles":"500"
+		},
+		{"superficie":"45500","id":"PB-10",
+		"precioxmt":"45500",
+		"mtsdisponibles":"45500"
+		},
+		{"superficie":"34500","id":"PB-11",
+		"precioxmt":"34500",
+		"mtsdisponibles":"34500"
+		},
+		{"superficie":"500","id":"PB-12",
+		"precioxmt":"500",
+		"mtsdisponibles":"500"
+		},
+		{"superficie":"500","id":"PB-13",
+		"precioxmt":"500",
+		"mtsdisponibles":"500"
+		},
+		{"superficie":"45500","id":"PB-14",
+		"precioxmt":"45500",
+		"mtsdisponibles":"45500"
+		},
+		{"superficie":"34500","id":"PB-15",
+		"precioxmt":"34500",
+		"mtsdisponibles":"34500"
+		},
+		{"superficie":"500","id":"PB-16",
+		"precioxmt":"500",
+		"mtsdisponibles":"500"
+		},
+		{"superficie":"45500","id":"PB-17",
+		"precioxmt":"45500",
+		"mtsdisponibles":"45500"
+		},
+		{"superficie":"34500","id":"PB-18",
+		"precioxmt":"34500",
+		"mtsdisponibles":"34500"
+		},
+		{"superficie":"500","id":"PB-19",
+		"precioxmt":"500",
+		"mtsdisponibles":"500"
+		},
+		{"superficie":"45500","id":"PB-20",
+		"precioxmt":"45500",
+		"mtsdisponibles":"45500"
+		},
+		{"superficie":"34500","id":"PB-21",
+		"precioxmt":"34500",
+		"mtsdisponibles":"34500"
+		},
+		{"superficie":"500","id":"PB-22",
+		"precioxmt":"500",
+		"mtsdisponibles":"500"
 		}
+
 	]
 }
