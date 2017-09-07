@@ -2,10 +2,12 @@ g{
   fill: #b30000;
 }
 
-g:hover{
-  /*fill: #b30000;*/
+/*g:hover{
+  fill: #b30000;
+}*/
+g:active{
+  fill: #FFFF00;
 }
-
 path{
   stroke-width: 0;
 }

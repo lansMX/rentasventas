@@ -34,9 +34,6 @@
 			height: 600px;
 		}
 
-
-
-
 		text{
 			font-size: 28px;
 		}
@@ -50,17 +47,15 @@
 
 </head>
 <body>
-
-	<!-- <div class="header">
-		header
-	</div> -->
-
 	<div class="content">
-		<!-- <div class="menu">
-			menu
-		</div> -->
-		<div class="mapp" >
-		<!-- (c) ammap.com | SVG map of Mexico -->
+		<select name="SP" id="SP" class="" tabindex="1" style="height:43px; border:1px solid #FFF; font-size:33px; ">
+			<option value="PB" selected="">PB</option>
+			<option value="1N">1N</option>
+			<option value="2N">2N</option>
+			<option value="3N">3N</option>
+		</select>
+		<div class="mapp">
+
 			<svg id="svglocal">
 				<g>
 					<path id="MX-AGU" title="Aguascalientes" class="land" d="M390.24,367.07L387.9,364.81L387.83,363.6L389.07,360.73L392.4,356.14L393.33,352.9L394.4,352.17L396.19,351.79L399.66,349.82L400.87,348.9L401.26,347.64L401.99,347.47L402.76,348.86L404.09,350.2L408.53,352.83L409.12,355.27L410.26,357.31L410.26,357.31L410.52,357.9L410.28,359.5L412.24,361.64L407.96,363.61L405.41,367.16L404.69,367.66L401.67,368.7L400.41,368.76L398.24,367.74L396.5,366.33L392.29,365.95z"/>
@@ -136,12 +131,16 @@
 					<text class="label" id="parteCuerpo" x="10" y="390">México</text>
 				</g>
 			</svg>
+
 		</div>
 		<div class="calculador">
 				<form name="ejemplo">
 		<table>
 		<thead></thead>
 		<tbody>
+			<tr>
+				<td colspan="2"><h1 id="localSelected" style="font-weight:normal"></h1></td>
+			</tr>
 			<tr>
 				<td><label for="tipoTerreno"></label>Tipo terreno</td>
 				<td>
@@ -225,18 +224,10 @@
 			$('#tipoTerreno option[value=2]').attr('selected','selected');
 		});
 
-		// $(".land").mouseover(function(){
-		// 	var title = $(this).attr('title');
-		// 	$(this).attr('fill', '#f00');
-		// 	$(this).attr('opacity', '.5');
-		// 	$("#parteCuerpo").text(title);
-		// });
-		//
-		// $(".land").mouseout(function() {
-		// 	var title = $(this).attr('title');
-		// 	$(this).attr('fill', '#333');
-		// 	$(this).attr('opacity', '1');
-		// });
+		$(".land").mouseover(function(){
+			var title = $(this).attr('title');
+			$("#parteCuerpo").text(title);
+		});
 
 		$(".land").click(function(){
 			var paths = $('.mapp > svg > g').find('path');
@@ -246,6 +237,10 @@
 
 			$(this).addClass('active');
 			var myValue = $(this).attr('id');
+
+			var title = $(this).attr("title");
+			$("#localSelected").text(title);
+
 			$.each(obj.data, function(i, v){
 				if(myValue == v.id){
 					$("#m2finales").val(v.superficie);
@@ -270,7 +265,6 @@
 			pagomensual();
 		});
 
-
 		function pagomensual(){
 			var pagomes = $('select[name="mensual"]').val();
 			var precioc = $('#total').text();
@@ -286,6 +280,7 @@
 				$("#svglocal").hide();
 				$("#svgplaza").show();
 				$("#estilossvg").attr("href", "css/plaza.css");
+				$("#localSelected").text("México");
 			}else if($(this).val() == 2){
 				$("#svglocal").show();
 				$("#svgplaza").hide();
@@ -293,7 +288,30 @@
 			}else if ($(this).val() == 3) {
 
 			}
-		})
+		});
+
+		$("#svgplaza g").click(function(){
+
+		});
+
+		$("#SP").change(function(){
+			var p = $(this).val();
+			switch (p) {
+				case "PB":
+					//alert(p);
+					break;
+				case "1N":
+					//alert(p);
+					break;
+				case "2N":
+					//alert(p);
+					break;
+				default:
+					//alert("default");
+			}
+		});
+
+
 	</script>
 
 </body>

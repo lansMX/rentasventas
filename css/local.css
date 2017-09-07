@@ -5,5 +5,5 @@
 }
 
 .land:hover{fill: #b30000;}
-.land.active{fill: #000;}
+.land.active{fill: #FFFF00;}
 .land.success{fill: #006847;}
