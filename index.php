@@ -4,6 +4,7 @@
 	<title>test</title>
 	<meta charset="utf-8"></meta>
 	<link id="estilossvg" rel="stylesheet" href="css/local.css">
+	
 	<style type="text/css">
 		body{
 			background-color: #fff;
@@ -12,6 +13,7 @@
 		}
 		.content{
 			display: inline-block;
+			width: 100%;
 		}
 		.menu{
 			display: inline-block;
@@ -19,7 +21,7 @@
 
 		.map{
 			display: inline-block;
-			width: 100%;
+			/*width: 100%;*/
 			height: 200px;
 			position: relative;
 		}
@@ -27,12 +29,18 @@
 			width: 502px;
 			height: 490px;
 		}
-		.calculador{
+
+		.calculador{			
+			float: right;
+		}
+
+		/*.calculador{
 			margin-top: -60%;
 			margin-left: 250%;
 			width: 40%;
 			position: relative;
-		}
+		}*/
+
 		.etiqueta{
 			padding-left: 30px;
 		}
@@ -58,22 +66,23 @@
 		}
 
 	</style>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
 
 </head>
-<body>
-	<div>
-		<select name="SP" id="SP" class="" tabindex="1" style="height:43px; border:1px solid #FFF; font-size:33px; ">
-			<option value="PB" selected="">PB</option>
-			<option value="1N">1N</option>
-			<option value="2N">2N</option>
-			<option value="3N">3N</option>
-		</select>
-	</div>
+<body>	
 	<div class="content">
-		
-		<div class="map"><div class="mapp">
-		</div></div>
+		<div>
+			<select name="SP" id="SP" class="" tabindex="1" style="height:43px; border:1px solid #FFF; font-size:33px; ">
+				<option value="PB" selected="">PB</option>
+				<option value="1N">1N</option>
+				<option value="2N">2N</option>
+				<option value="3N">3N</option>
+			</select>
+			<hr>
+		</div>	
+		<div class="map">
+			<div class="mapp"></div>
+		</div>
 
 		<div class="calculador">
 			<form name="ejemplo">
@@ -112,15 +121,15 @@
 					</tr>
 					<tr>
 						<td><label for="precioxm2">PRECIO X M<sup>2</sup></label></td>
-						<td>$ <span id="precioxm2">1000</span></td>
+						<td>$ <input type="text" id="precioxm2" value="100"> <!-- <span id="precioxm2">1000</span> --></td>
 					</tr>
 					<tr>
 						<td><label for="preciototal">PRECIO TOTAL:</label></td>
-						<td><span id="preciototal"></span></td>
+						<td>$ <input type="text" id="preciototal"><!-- <span id="preciototal"></span> --></td>
 					</tr>
 					<tr>
 						<td><label for="preciocontado">PRECIO DE CONTADO:</label></td>
-						<td><span id="preciocontado"></span></td>
+						<td>$ <input type="text" id="preciocontado"><!-- <span id="preciocontado"></span> --></td>
 					</tr>
 					<tr>
 						<td><label for="tipoLocal">CONTROL DE PORCENTAJE</label></td>
@@ -132,7 +141,7 @@
 					</tr>
 					<tr>
 						<td><label for="total">TOTAL:</label></td>
-						<td><span id="total"></span></td>
+						<td>$ <input type="text" id="total"><!-- <span id="total"></span> --></td>
 					</tr>
 					<tr>
 						<td><label for="mensual">MENSUALIDADES</label></td>
@@ -146,20 +155,29 @@
 					</tr>
 					<tr>
 						<td><label for="preciomensual">PRECIO POR MENSUALIDAD:</label></td>
-						<td> $<span id="preciomensual"></span></td>
+						<td>$ <input type="text" id="preciomensual"><!-- <span id="preciomensual"></span> --></td>
 					</tr>
 					</tbody>
 				</table>
 			</form>
 		</div>
 	</div>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.number.js"></script>
 	<script type="text/javascript">
 
 		$(document).ready(function(){
 			var min_range = $("#porcentaje").attr("min");
 			var val_range = $("#porcentaje").val(min_range);
 			$('#tipoTerreno option[value=2]').attr('selected','selected');
+
+			// ***********************************
+			$('#m2finales').number( true, 0 );
+			$("#precioxm2").number(true, 2);
+			$("#preciototal").number(true, 2);
+			$("#preciocontado").number(true, 2);
+			$("#total").number(true, 2);
+			$("#preciomensual").number(true, 2);			
 		});
 
 		$(".land").mouseover(function(){
@@ -195,17 +213,18 @@
 	          var opciones = "";
 
 	          	for (var i = 0; i < data.data.length; i++) {
-          			console.log(data.data[i]);
+          			//console.log(data.data[i]);
           			if(myValue == data.data[i].id){
-						console.log(data.data[i].superficie);
+						//console.log(data.data[i].superficie);
 						$("#m2finales").val(data.data[i].superficie);
 
-						var value = $("#m2finales").val();
-						var precio = $("#precioxm2").text();
-				    	var total1 = value * precio;
-				    	console.log(total1);
-				    	$("#preciototal").html(total1);
-				    	$("#preciocontado").html(total1);
+						var value = $("#m2finales").val();						
+						var precio = $("#precioxm2").val();										
+				    	var total1 = value * precio;			    	
+				    	
+				    	$("#preciototal").val(total1);				    	
+				    	$("#preciocontado").val(total1);
+				    	
 						$('#porcentaje').change();
 					}
           		}
@@ -216,35 +235,43 @@
 		$('#porcentaje').change(function(){
 			$('#valorporcentaje').val($(this).val());
 			var porcentaje = $('#valorporcentaje').val();
-			var precioc = $('#preciocontado').text();
-			var total = ((precioc * porcentaje)/100).toFixed(2);
-			$("#total").html(total);
+			var precioc = $('#preciocontado').val();
+			//var total = ((precioc * porcentaje)/100).toFixed(2);
+			var total = ((precioc * porcentaje)/100);
+			$("#total").val(total);
 			pagomensual();
 		});
 
 		function pagomensual(){
 			var pagomes = $('select[name="mensual"]').val();
-			var precioc = $('#total').text();
-			var pagomensual = (precioc / pagomes).toFixed(2);
-			$("#preciomensual").html(pagomensual);
+			var precioc = $('#total').val();
+			//var pagomensual = (precioc / pagomes).toFixed(2);
+			var pagomensual = (precioc / pagomes);
+			$("#preciomensual").val(pagomensual);
 		}
 
-		// var text = '{"data":[{"superficie":"500","id":"MX-AGU"},{"superficie":"600","id":"MX-BCN"},{"superficie":"700","id":"MX-BCS"},{"superficie":"800","id":"MX-CAM"},{"superficie":"900","id":"MX-CHP"},{"superficie":"100","id":"MX-CHH"},{"superficie":"200","id":"MX-COA"},{"superficie":"300","id":"MX-OCL"},{"superficie":"400","id":"MX-DIF"},{"superficie":"1500","id":"MX-DUR"},{"superficie":"2500","id":"MX-GUA"},{"superficie":"2500","id":"MX-GRO"},{"superficie":"5003","id":"MX-H"},{"superficie":"3500","id":"MX-JAL"},{"superficie":"4500","id":"MX-MEX"},{"superficie":"5500","id":"MX-MIC"},{"superficie":"6500","id":"MX-MOR"},{"superficie":"7500","id":"MX-NAY"},{"superficie":"8500","id":"MX-NLE"},{"superficie":"9500","id":"MX-OAX"},{"superficie":"5430","id":"MX-PUE"},{"superficie":"11500","id":"MX-QUE"},{"superficie":"12500","id":"MX-ROO"},{"superficie":"34500","id":"MX-SLP"},{"superficie":"55400","id":"MX-SIN"},{"superficie":"531500","id":"MX-SON"},{"superficie":"500","id":"MX-TAB"},{"superficie":"500","id":"MX-TAM"},{"superficie":"23500","id":"MX-TLA"},{"superficie":"45500","id":"MX-VER"},{"superficie":"34500","id":"MX-YUC"},{"superficie":"500","id":"MX-ZAC"}]}';
+		;// var text = '{"data":[{"superficie":"500","id":"MX-AGU"},{"superficie":"600","id":"MX-BCN"},{"superficie":"700","id":"MX-BCS"},{"superficie":"800","id":"MX-CAM"},{"superficie":"900","id":"MX-CHP"},{"superficie":"100","id":"MX-CHH"},{"superficie":"200","id":"MX-COA"},{"superficie":"300","id":"MX-OCL"},{"superficie":"400","id":"MX-DIF"},{"superficie":"1500","id":"MX-DUR"},{"superficie":"2500","id":"MX-GUA"},{"superficie":"2500","id":"MX-GRO"},{"superficie":"5003","id":"MX-H"},{"superficie":"3500","id":"MX-JAL"},{"superficie":"4500","id":"MX-MEX"},{"superficie":"5500","id":"MX-MIC"},{"superficie":"6500","id":"MX-MOR"},{"superficie":"7500","id":"MX-NAY"},{"superficie":"8500","id":"MX-NLE"},{"superficie":"9500","id":"MX-OAX"},{"superficie":"5430","id":"MX-PUE"},{"superficie":"11500","id":"MX-QUE"},{"superficie":"12500","id":"MX-ROO"},{"superficie":"34500","id":"MX-SLP"},{"superficie":"55400","id":"MX-SIN"},{"superficie":"531500","id":"MX-SON"},{"superficie":"500","id":"MX-TAB"},{"superficie":"500","id":"MX-TAM"},{"superficie":"23500","id":"MX-TLA"},{"superficie":"45500","id":"MX-VER"},{"superficie":"34500","id":"MX-YUC"},{"superficie":"500","id":"MX-ZAC"}]}'
 		// var obj = JSON.parse(text);
 
 		$("#tipoTerreno").change(function(){
-			if($(this).val() == 1){
-				$("#svglocal").hide();
-				$("#svgplaza").show();
-				$("#estilossvg").attr("href", "css/plaza.css");
-				$("#localSelected").text("México");
-			}else if($(this).val() == 2){
-				$("#svglocal").show();
-				$("#svgplaza").hide();
-				$("#estilossvg").attr("href", "css/local.css");
-			}else if ($(this).val() == 3) {
-
+			var tipo = parseInt($(this).val());
+			switch(tipo){
+				case 1:
+					$("#svglocal").hide();
+					$("#svgplaza").show();
+					$("#estilossvg").attr("href", "css/plaza.css");
+					$("#localSelected").text("México");
+					getAllSuperficie();
+					break;
+				case 2:	
+					$("#svglocal").show();
+					$("#svgplaza").hide();
+					$("#estilossvg").attr("href", "css/local.css");
+					break;
+				case 3:
+					break;	
 			}
+			
 		});
 
 		$("#svgplaza g").click(function(){
@@ -290,6 +317,48 @@
           $(".mapp").append(opciones + "<img class='imgFondoPlano' src='" + urlFondo + "'>" );
 
         });
+
+		function getAllSuperficie(){
+			$.getJSON( "datos/infedo.json", function( data ) {
+	          	var items = [];
+	          	var opciones = "";
+	          	var mtotales = 0;
+		        $.each(data.data, function(index, i){
+		          	console.log(i.superficie);
+		          	mtotales = mtotales + parseInt(i.superficie);
+		        });
+	          
+	          	//console.log(mtotales);	          	
+	          	$("#m2finales").val(mtotales);
+	            var value = $("#m2finales").val();
+
+				var precio = $("#precioxm2").val();
+		    	var total1 = value * precio;
+				//console.log(total1);
+		    	$("#preciototal").val(total1);
+		    	$("#preciocontado").val(total1);
+				$('#porcentaje').change();
+
+	          //1,381,333
+
+	    //       	for (var i = 0; i < data.data.length; i++) {
+     //      			//console.log(data.data[i]);
+     //      			if(myValue == data.data[i].id){
+					// 	//console.log(data.data[i].superficie);
+					// 	$("#m2finales").val(data.data[i].superficie);
+
+					// 	var value = $("#m2finales").val();
+					// 	var precio = $("#precioxm2").text();
+				 //    	var total1 = value * precio;
+				 //    	//console.log(total1);
+				 //    	$("#preciototal").html(total1);
+				 //    	$("#preciocontado").html(total1);
+					// 	$('#porcentaje').change();
+					// }
+     //      		}
+
+	      	});
+		}        	
       </script>
 
 </body>
