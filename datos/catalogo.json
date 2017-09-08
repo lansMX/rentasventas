@@ -84,6 +84,19 @@
 				}
 			]
 
+		},
+		{
+			"titulo": "Torre Bella",
+			"logo": "./src/LOGO_LUXURY.png' style='background-color:white;'",
+			"id": "8" ,
+			"imgfondo": "./src/editPPLANTASBAJABELLANCA2-Model.jpg",
+			"codesvg":[
+				{
+					"n0":"<svg><g><path class='' opacity='0' d='M70.24,753c.86.57,0-712.32,0-712.32H539.08V753Z' transform='translate(-69.49 -38.49)'/><rect class='land' x='156.75' y='0.75' width='108.96' height='90.72'/><polygon class='land' points='265.71 93.15 156.75 93.51 156.75 202.76 265.71 204.03 265.71 93.15'/><polygon class='land' points='264.76 205.51 156.75 204.03 156.75 312.01 265.71 312.01 264.76 205.51'/><polygon class='land' points='265.23 313.95 158.19 313.95 158.19 394.59 265.71 394.59 265.23 313.95'/><rect class='land' x='156.75' y='394.59' width='108.96' height='109.92'/><rect class='land' x='350.43' y='495.63' width='108.96' height='110.4'/><rect class='land' x='352.11' y='394.59' width='107.28' height='101.04'/><rect class='land' x='350.43' y='206.03' width='108.96' height='109.92'/><polygon class='land' points='459.39 91.47 459.39 200.84 351.27 200.84 350.43 91.47 459.39 91.47'/><polygon class='land' points='457.95 2.19 457.95 88.18 350.51 88.18 350.51 0.75 457.95 2.19'/></g></svg>",
+					"n1":"<svg><g><path class='' opacity='0' d='M70.24,753c.86.57,0-712.32,0-712.32H539.08V753Z' transform='translate(-69.49 -38.49)'/><rect class='land' x='156.75' y='0.75' width='108.96' height='90.72'/><polygon class='land' points='265.71 93.15 156.75 93.51 156.75 202.76 265.71 204.03 265.71 93.15'/><polygon class='land' points='264.76 205.51 156.75 204.03 156.75 312.01 265.71 312.01 264.76 205.51'/><polygon class='land' points='265.23 313.95 158.19 313.95 158.19 394.59 265.71 394.59 265.23 313.95'/><rect class='land' x='156.75' y='394.59' width='108.96' height='109.92'/><rect class='land' x='350.43' y='495.63' width='108.96' height='110.4'/><rect class='land' x='352.11' y='394.59' width='107.28' height='101.04'/><rect class='land' x='350.43' y='206.03' width='108.96' height='109.92'/><polygon class='land' points='459.39 91.47 459.39 200.84 351.27 200.84 350.43 91.47 459.39 91.47'/><polygon class='land' points='457.95 2.19 457.95 88.18 350.51 88.18 350.51 0.75 457.95 2.19'/></g></svg>"
+				}
+			]
+
 		}
 	]
 }
