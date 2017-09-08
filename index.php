@@ -17,11 +17,15 @@
 			display: inline-block;
 		}
 
-		.mapp{
+		.map{
 			display: inline-block;
 			width: 100%;
-			height: 500px;
+			height: 200px;
 			position: relative;
+		}
+		.mapp{
+			width: 502px;
+			height: 490px;
 		}
 		.calculador{
 			margin-top: -60%;
@@ -47,8 +51,8 @@
 			height: 20px;
 		}
 		.imgFondoPlano{
-			width: 105;
-			height: 105;
+			width: 100%;
+			height: auto;
 			position: absolute;
 			z-index: -1;
 		}
@@ -58,94 +62,94 @@
 
 </head>
 <body>
-	<div class="content">
+	<div>
 		<select name="SP" id="SP" class="" tabindex="1" style="height:43px; border:1px solid #FFF; font-size:33px; ">
 			<option value="PB" selected="">PB</option>
 			<option value="1N">1N</option>
 			<option value="2N">2N</option>
 			<option value="3N">3N</option>
 		</select>
-		<div class="mapp">
-		</div>
+	</div>
+	<div class="content">
+		
+		<div class="map"><div class="mapp">
+		</div></div>
+
 		<div class="calculador">
-				<form name="ejemplo">
-		<table>
-			<thead></thead>
-			<tbody>
-			<tr>
-				<td colspan="2"><h1 id="localSelected" style="font-weight:normal"></h1></td>
-			</tr>
-			<tr>
-				<td><label for="tipoTerreno"></label>Tipo terreno</td>
-				<td>
-					<select name="tipoTerreno" id="tipoTerreno">
-						<option value="1">Plaza</option>
-						<option value="2">local</option>
-						<option value="3">Mts2</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td><label for="m2finals">M <sup>2</sup> FINALES</label></td>
-				<td><input type="text" id="m2finales" class="inp" readonly></td></tr>
-			<tr>
-				<td><label for="tipoLocal">TIPO DE LOCAL</label></td>
-				<td>
-					<select id="tipoLocal">
-						<option value="1">Kiosko</option>
-						<option value="2">Local</option>
-						<option value="3">consultorio</option>
-						<option value="4">Departamento</option>
-						<option value="4">Habitación</option>
-						<option value="6">Hotel</option>
-						<option value="7">Oficina</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td><label for="precioxm2">PRECIO X M<sup>2</sup></label></td>
-				<td>$ <span id="precioxm2">1000</span></td>
-			</tr>
-			<tr>
-				<td><label for="preciototal">PRECIO TOTAL:</label></td>
-				<td><span id="preciototal"></span></td>
-			</tr>
-			<tr>
-				<td><label for="preciocontado">PRECIO DE CONTADO:</label></td>
-				<td><span id="preciocontado"></span></td>
-			</tr>
-			<tr>
-				<td><label for="tipoLocal">CONTROL DE PORCENTAJE</label></td>
-				<td><input id="porcentaje" type="range" name="porcentaje" min="30" max="100" step="1"></td>
-			</tr>
-			<tr>
-				<td><label for="valorporcentaje">ENGANCHE</label></td>
-				<td><input type="number" name="valorporcentaje" id="valorporcentaje" class="inp">%</td>
-			</tr>
-			<tr>
-				<td><label for="total">TOTAL:</label></td>
-				<td><span id="total"></span></td>
-			</tr>
-			<tr>
-				<td><label for="mensual">MENSUALIDADES</label></td>
-				<td>
-					<select id="mensual" name="mensual" onchange="pagomensual()">
-	    			<?php for($i=1; $i<=12; $i++) { ?>
-						<option value="<?= $i ?>"> <?= $i ?> </option>
-					<?php } ?>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td><label for="preciomensual">PRECIO POR MENSUALIDAD:</label></td>
-				<td> $<span id="preciomensual"></span></td>
-			</tr>
-			</tbody>
-			</table>
-				<!--<select id="planpago">
-					<option>PAGO DE CONTADO</option>
-					<option>PLAN DE PAGO</option>
-				</select><br><br>-->
+			<form name="ejemplo">
+				<table>
+					<thead></thead>
+					<tbody>
+					<tr>
+						<td colspan="2"><h1 id="localSelected" style="font-weight:normal"></h1></td>
+					</tr>
+					<tr>
+						<td><label for="tipoTerreno"></label>Tipo terreno</td>
+						<td>
+							<select name="tipoTerreno" id="tipoTerreno">
+								<option value="1">Plaza</option>
+								<option value="2">local</option>
+								<option value="3">Mts2</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="m2finals">M <sup>2</sup> FINALES</label></td>
+						<td><input type="text" id="m2finales" class="inp" readonly></td></tr>
+					<tr>
+						<td><label for="tipoLocal">TIPO DE LOCAL</label></td>
+						<td>
+							<select id="tipoLocal">
+								<option value="1">Kiosko</option>
+								<option value="2">Local</option>
+								<option value="3">consultorio</option>
+								<option value="4">Departamento</option>
+								<option value="4">Habitación</option>
+								<option value="6">Hotel</option>
+								<option value="7">Oficina</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="precioxm2">PRECIO X M<sup>2</sup></label></td>
+						<td>$ <span id="precioxm2">1000</span></td>
+					</tr>
+					<tr>
+						<td><label for="preciototal">PRECIO TOTAL:</label></td>
+						<td><span id="preciototal"></span></td>
+					</tr>
+					<tr>
+						<td><label for="preciocontado">PRECIO DE CONTADO:</label></td>
+						<td><span id="preciocontado"></span></td>
+					</tr>
+					<tr>
+						<td><label for="tipoLocal">CONTROL DE PORCENTAJE</label></td>
+						<td><input id="porcentaje" type="range" name="porcentaje" min="30" max="100" step="1"></td>
+					</tr>
+					<tr>
+						<td><label for="valorporcentaje">ENGANCHE</label></td>
+						<td><input type="number" name="valorporcentaje" id="valorporcentaje" class="inp">%</td>
+					</tr>
+					<tr>
+						<td><label for="total">TOTAL:</label></td>
+						<td><span id="total"></span></td>
+					</tr>
+					<tr>
+						<td><label for="mensual">MENSUALIDADES</label></td>
+						<td>
+							<select id="mensual" name="mensual" onchange="pagomensual()">
+			    			<?php for($i=1; $i<=12; $i++) { ?>
+								<option value="<?= $i ?>"> <?= $i ?> </option>
+							<?php } ?>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="preciomensual">PRECIO POR MENSUALIDAD:</label></td>
+						<td> $<span id="preciomensual"></span></td>
+					</tr>
+					</tbody>
+				</table>
 			</form>
 		</div>
 	</div>
@@ -226,10 +230,7 @@
 		}
 
 		// var text = '{"data":[{"superficie":"500","id":"MX-AGU"},{"superficie":"600","id":"MX-BCN"},{"superficie":"700","id":"MX-BCS"},{"superficie":"800","id":"MX-CAM"},{"superficie":"900","id":"MX-CHP"},{"superficie":"100","id":"MX-CHH"},{"superficie":"200","id":"MX-COA"},{"superficie":"300","id":"MX-OCL"},{"superficie":"400","id":"MX-DIF"},{"superficie":"1500","id":"MX-DUR"},{"superficie":"2500","id":"MX-GUA"},{"superficie":"2500","id":"MX-GRO"},{"superficie":"5003","id":"MX-H"},{"superficie":"3500","id":"MX-JAL"},{"superficie":"4500","id":"MX-MEX"},{"superficie":"5500","id":"MX-MIC"},{"superficie":"6500","id":"MX-MOR"},{"superficie":"7500","id":"MX-NAY"},{"superficie":"8500","id":"MX-NLE"},{"superficie":"9500","id":"MX-OAX"},{"superficie":"5430","id":"MX-PUE"},{"superficie":"11500","id":"MX-QUE"},{"superficie":"12500","id":"MX-ROO"},{"superficie":"34500","id":"MX-SLP"},{"superficie":"55400","id":"MX-SIN"},{"superficie":"531500","id":"MX-SON"},{"superficie":"500","id":"MX-TAB"},{"superficie":"500","id":"MX-TAM"},{"superficie":"23500","id":"MX-TLA"},{"superficie":"45500","id":"MX-VER"},{"superficie":"34500","id":"MX-YUC"},{"superficie":"500","id":"MX-ZAC"}]}';
-		// var obj = JSON.parse(text);	
-
-		
-     
+		// var obj = JSON.parse(text);
 
 		$("#tipoTerreno").change(function(){
 			if($(this).val() == 1){
