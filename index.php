@@ -1,14 +1,4 @@
-<?php 
-
-if (isset($_GET['map'])) {
-	echo "<h1>OK</h1>";
-
-}
-else {
-	echo "<h1>NO</h1>";
-}
-
- ?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>test</title>
@@ -16,7 +6,8 @@ else {
 	<link id="estilossvg" rel="stylesheet" href="css/local.css">
 	<style type="text/css">
 		body{
-			background-color: #3e3e3e;
+			background-color: #fff;
+			color: #000;
 			font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 		}
 		.content{
@@ -30,11 +21,13 @@ else {
 			display: inline-block;
 			width: 100%;
 			height: 500px;
+			position: relative;
 		}
 		.calculador{
 			margin-top: -60%;
-			margin-left: 90%;
+			margin-left: 250%;
 			width: 40%;
+			position: relative;
 		}
 		.etiqueta{
 			padding-left: 30px;
@@ -42,6 +35,7 @@ else {
 		svg{
 			width: 900px;
 			height: 600px;
+			position: absolute;
 		}
 
 		text{
@@ -52,6 +46,13 @@ else {
 			width: 105px;
 			height: 20px;
 		}
+		.imgFondoPlano{
+			width: 105;
+			height: 105;
+			position: absolute;
+			z-index: -1;
+		}
+
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -169,9 +170,19 @@ else {
 				$(v).removeClass('active');
 			});
 
+			var paths = $('.mapp > svg > g').find('poligon');
+			$.each(paths, function(i, v){
+				$(v).removeClass('active');
+			});
+
+			var paths = $('.mapp > svg > g').find('rect');
+			$.each(paths, function(i, v){
+				$(v).removeClass('active');
+			});
+
 			$(ctrl).addClass('active');
 			var myValue = $(ctrl).attr('id');
-
+			console.log(myValue);
 			var title = $(this).attr("title");
 			$("#localSelected").text(title);
 
@@ -180,7 +191,7 @@ else {
 	          var opciones = "";
 
 	          	for (var i = 0; i < data.data.length; i++) {
-          			
+          			console.log(data.data[i]);
           			if(myValue == data.data[i].id){
 						console.log(data.data[i].superficie);
 						$("#m2finales").val(data.data[i].superficie);
@@ -260,6 +271,7 @@ else {
 		});
 
 		var asipararapido = "";
+		var urlFondo = "";
         $.getJSON( "datos/catalogo.json", function( data ) {
           var items = [];
           var opciones = "";
@@ -269,11 +281,12 @@ else {
           	if (val.id == idMap) {
           		opciones = 	val.codesvg[0].n0;
           		asipararapido = val.codesvg[0];
+          		urlFondo = val.imgfondo;
           	}
           	
           });
           // <text class='label' id='parteCuerpo' x='10' y='390'>México</text>
-          $(".mapp").append(opciones);
+          $(".mapp").append(opciones + "<img class='imgFondoPlano' src='" + urlFondo + "'>" );
 
         });
       </script>
