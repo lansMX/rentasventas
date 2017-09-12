@@ -4,12 +4,8 @@ require_once('conexion.php');
 
 $bd = new BD();
 
-$conexion1 = $bd->conexion();
-var_dump($conexion1);
-$conexion = $bd->fetchData("select * from tab_bellanca");
+$conexion = $bd->fetchData("select * from tab_complejopisos where Piso = 'PB'");
 var_dump($conexion);
-
-echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
 
  ?><!DOCTYPE html>
 <html>
@@ -25,17 +21,16 @@ echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<b
 		}
 		.menu{
 			display: inline-block;
-			
 		}
 		.mapp{
-			display: inline-block;
+			float: left;
 			width: 100%;
 			height: 500px;
 		}
 		.calculador{
 			display: inline-block;
 		}
-		svg{
+		/*svg{
 			width: 900px;
 			height: 600px;
 		}
@@ -57,8 +52,26 @@ echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<b
 		}
 		.cls-2:hover{
 			fill: #00;
-		}
+		}*/
 	</style>
+	<style type="text/css">
+		svg{
+			position: absolute;
+			width: 100%;
+			height: 1000px;
+		}
+		img{
+			position: absolute;
+			z-index: -1;
+		}
+		.land:hover{
+			fill:#0f0 !important;
+			opacity: 1;
+		}
+		.land{fill:white;opacity:.1; stroke:#000;stroke-miterlimit:10;}
+		.contorno{opacity: .1;fill: none;}
+	</style>
+
 	<div class="header">
 		header
 	</div>
@@ -67,133 +80,10 @@ echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<b
 		<div class="menu">
 			menu
 		</div>
-		<div class="mapp" >	
-
-<!-- Imagen 1 -->
- <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 927 458">
-	<defs>
-	<style>.cls-1{fill:#fff;}.cls-2{font-size:12px;font-family:MyriadPro-Regular, Myriad Pro;}
-	</style>
-	</defs>
-	<title>test01</title>
-	
-	<rect  class="cls-1" x="9" y="9" width="909" height="440"/>
-
-	<path class="land" d="M1207,150V572H316V150h891m18-18H298V590h927V132Z" transform="translate(-298 -132)"/>
-	
-	<rect  class="cls-1" x="64" y="30" width="114" height="151"/>
-
-	<path class="land" d="M467,171V304H371V171h96m18-18H353V322H485V153Z" transform="translate(-298 -132)"/>
-	
-	<rect  class="cls-1" x="214" y="30" width="114" height="151"/>
-
-	<path class="land" d="M617,171V304H521V171h96m18-18H503V322H635V153Z" transform="translate(-298 -132)"/>
-	
-	<rect  class="cls-1" x="356" y="31" width="114" height="151"/>
-
-	<path class="land" d="M759,172V305H663V172h96m18-18H645V323H777V154Z" transform="translate(-298 -132)"/>
-	
-	<rect  class="cls-1" x="500" y="32" width="114" height="151"/>
-
-	<path class="land" d="M903,173V306H807V173h96m18-18H789V324H921V155Z" transform="translate(-298 -132)"/>
-	
-	<rect  class="cls-1" x="645" y="32" width="114" height="151"/>
-
-	<path class="land" d="M1048,173V306H952V173h96m18-18H934V324h132V155Z" transform="translate(-298 -132)"/>
-	
-	<rect  class="cls-1" x="60" y="275" width="114" height="151"/>
-
-	<path class="land" d="M463,416V549H367V416h96m18-18H349V567H481V398Z" transform="translate(-298 -132)"/>
-	
-	<rect  class="cls-1" x="215" y="276" width="114" height="151"/>
-
-	<path class="land" d="M618,417V550H522V417h96m18-18H504V568H636V399Z" transform="translate(-298 -132)"/>
-	
-	<rect  class="cls-1" x="357" y="274" width="114" height="151"/>
-
-	<path class="land" d="M760,415V548H664V415h96m18-18H646V566H778V397Z" transform="translate(-298 -132)"/>
-	
-	<rect  class="cls-1" x="500" y="273" width="114" height="151"/>
-
-	<path class="land" d="M903,414V547H807V414h96m18-18H789V565H921V396Z" transform="translate(-298 -132)"/>
-	
-	<rect  class="cls-1" x="782" y="33" width="114" height="151"/>
-
-	<path class="land" d="M1185,174V307h-96V174h96m18-18H1071V325h132V156Z" transform="translate(-298 -132)"/>
-	
-	<rect  class="cls-1" x="644" y="272" width="114" height="151"/>
-
-	<path class="land" d="M1047,413V546H951V413h96m18-18H933V564h132V395Z" transform="translate(-298 -132)"/>
-	
-	<rect  class="cls-1" x="783" y="271" width="114" height="151"/>
-
-	<path class="land" d="M1186,412V545h-96V412h96m18-18H1072V563h132V394Z" transform="translate(-298 -132)"/>
-	<text class="cls-2" transform="translate(101.41 93.06)">1</text>
-	<text class="cls-2" transform="translate(248.47 82.47)">2</text>
-	<text class="cls-2" transform="translate(394.35 77.76)">3</text>
-	<text class="cls-2" transform="translate(536.71 83.65)">4</text>
-	<text class="cls-2" transform="translate(680.24 83.65)">5</text>
-	<text class="cls-2" transform="translate(813.18 87.18)">6</text>
-	<text class="cls-2" transform="translate(100.24 330.71)">7</text>
-	<text class="cls-2" transform="translate(252 329.53)">8</text>
-	<text class="cls-2" transform="translate(396.71 329.53)">9</text>
-	<text class="cls-2" transform="translate(533.18 333.06)">10</text>
-	<text class="cls-2" transform="translate(675.53 321.29)">11</text>
-	<text class="cls-2" transform="translate(817.88 327.18)">12</text>
-
-	</svg>
-
-<!-- fIN imagen 1 -->
- 
-<!-- imagen 2 -->
-		<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 997.35 458"><title>test02</title>
-		
-		<rect clasS="cls-1" x="79.35" y="9" width="909" height="440" fill="#fff"/>
-		
-		<path d="M1207,150V572H316V150h891m18-18H298V590h927V132Z" transform="translate(-227.65 -132)"/>
-		
-		<rect clasS="cls-1" x="165.35" y="61" width="52" height="89" fill="#fff"/>
-		
-		<path d="M482.82,153H355.18a2.18,2.18,0,0,0-2.18,2.18V319.82a2.18,2.18,0,0,0,2.18,2.18H482.82a2.18,2.18,0,0,0,2.18-2.18V155.18a2.18,2.18,0,0,0-2.18-2.18Z" transform="translate(-227.65 -132)"/>
-		
-		<rect clasS="cls-1" x="315.35" y="61" width="52" height="89" fill="#fff"/>
-		
-		<polygon class="land" points="407.35 21 275.35 21 275.35 190 407.35 190 407.35 21 407.35 21"/>
-		
-		<rect clasS="cls-1" x="457.35" y="62" width="52" height="89" fill="#fff"/>
-		
-		<polygon class="land" points="549.35 22 417.35 22 417.35 191 549.35 191 549.35 22 549.35 22"/>
-		
-		<rect clasS="cls-1" x="601.35" y="63" width="52" height="89" fill="#fff"/>
-		
-		<polygon class="land" points="693.35 23 561.35 23 561.35 192 693.35 192 693.35 23 693.35 23"/>
-		
-		<rect clasS="cls-1" x="746.35" y="63" width="52" height="89" fill="#fff"/>
-		
-		<polygon class="land" points="838.35 23 706.35 23 706.35 192 838.35 192 838.35 23 838.35 23"/>
-		
-		<rect clasS="cls-1" x="161.35" y="306" width="52" height="89" fill="#fff"/>
-		
-		<polygon class="land" points="253.35 266 121.35 266 121.35 435 253.35 435 253.35 266 253.35 266"/>
-		<rect clasS="cls-1" x="316.35" y="307" width="52" height="89" fill="#fff"/>
-		<polygon class="land" points="408.35 267 276.35 267 276.35 436 408.35 436 408.35 267 408.35 267"/>
-		<rect clasS="cls-1" x="458.35" y="305" width="52" height="89" fill="#fff"/>
-		<polygon class="land" points="550.35 265 418.35 265 418.35 434 550.35 434 550.35 265 550.35 265"/>
-		<rect clasS="cls-1" x="601.35" y="304" width="52" height="89" fill="#fff"/>
-		<polygon class="land" points="693.35 264 561.35 264 561.35 433 693.35 433 693.35 264 693.35 264"/>
-		<rect clasS="cls-1" x="883.35" y="64" width="52" height="89" fill="#fff"/>
-		<polygon class="land" points="975.35 24 843.35 24 843.35 193 975.35 193 975.35 24 975.35 24"/>
-		<rect clasS="cls-1" x="745.35" y="303" width="52" height="89" fill="#fff"/>
-		<polygon class="land" points="837.35 263 705.35 263 705.35 432 837.35 432 837.35 263 837.35 263"/>
-		<rect clasS="cls-1" x="884.35" y="302" width="52" height="89" fill="red"/>
-		<polygon class="land" points="976.35 262 844.35 262 844.35 431 976.35 431 976.35 262 976.35 262"/>
-		<text transform="translate(171.76 93.06)" font-size="12" fill="#fff" font-family="MyriadPro-Regular, Myriad Pro">1</text><text transform="translate(318.82 82.47)" font-size="12" fill="#fff" font-family="MyriadPro-Regular, Myriad Pro">2</text><text transform="translate(464.71 77.76)" font-size="12" fill="#fff" font-family="MyriadPro-Regular, Myriad Pro">3</text><text transform="translate(607.06 83.65)" font-size="12" fill="#fff" font-family="MyriadPro-Regular, Myriad Pro">4</text><text transform="translate(750.59 83.65)" font-size="12" fill="#fff" font-family="MyriadPro-Regular, Myriad Pro">5</text><text transform="translate(883.53 87.18)" font-size="12" fill="#fff" font-family="MyriadPro-Regular, Myriad Pro">6</text><text transform="translate(170.59 330.71)" font-size="12" fill="#fff" font-family="MyriadPro-Regular, Myriad Pro">7</text><text transform="translate(322.35 329.53)" font-size="12" fill="#fff" font-family="MyriadPro-Regular, Myriad Pro">8</text><text transform="translate(467.06 329.53)" font-size="12" fill="#fff" font-family="MyriadPro-Regular, Myriad Pro">9</text><text transform="translate(603.53 333.06)" font-size="12" fill="#fff" font-family="MyriadPro-Regular, Myriad Pro">10</text><text transform="translate(745.88 321.29)" font-size="12" fill="#fff" font-family="MyriadPro-Regular, Myriad Pro">11</text><text transform="translate(888.24 327.18)" font-size="12" fill="#fff" font-family="MyriadPro-Regular, Myriad Pro">12</text><text transform="translate(0 100.12)" font-size="12" font-family="MyriadPro-Regular, Myriad Pro"><tspan letter-spacing="-0.01em">L</tspan><tspan x="5.5" y="0">o</tspan><tspan x="12.08" y="0" letter-spacing="-0.01em">r</tspan><tspan x="15.89" y="0" letter-spacing="0em">em ipsum</tspan></text></svg>
-
-<!-- Fin imagen 2 -->
-
-
-
-	</div>
+		<div class="mapp">
+			<?= $conexion[0]['SGV']; ?>	
+			<?= "<img src='".$conexion[0]['Fondo']."'>"; ?>
+		</div>	
 		<div class="calculador">
 			<form name="ejemplo">
 				<label for="m2finals">M <sup>2</sup> FINALES</label>
@@ -236,8 +126,13 @@ echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<b
 		</div>
 	</div>
 
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-	<script type="text/javascript">
+  	<script type="text/javascript">
+  		$(".land").mouseover(function(){
+  			$(this).attr("fill", "red");
+  			$(this).attr("opacity", "1");
+  		});
 		
 		$(".land").mouseover(function() {
 			var title = $(this).attr('title');
@@ -251,18 +146,30 @@ echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<b
 			$(this).attr('fill', '#333');
 			$(this).attr('opacity', '1');
 		});	
-		$(".land").click(function() {							
-			var paths = $('.mapp > svg > g').find('path');			
-			$.each(paths, function(i, v){
-				$(v).removeClass('active');
-			});
-			$(this).addClass('active');
-			var myValue = $(this).attr('id');
-			$.each(obj.data, function(i, v){
-				if(myValue == v.id){
-					$("#m2finales").val(v.superficie);
+		$(".land").click(function() {
+			$(this).attr("id");
+			$.ajax({
+				method : 'POST',
+				url : 'fetchData',
+				data : { 'query' : 'select * from tab_bellanca' },
+				success: function(result){
+					console.log(result);console.log("success");
+				},
+				error: function(r){
+					console.log(r);console.log("error");
 				}
 			});
+			// var paths = $('.mapp > svg > g').find('path');			
+			// $.each(paths, function(i, v){
+			// 	$(v).removeClass('active');
+			// });
+			// $(this).addClass('active');
+			// var myValue = $(this).attr('id');
+			// $.each(obj.data, function(i, v){
+			// 	if(myValue == v.id){
+			// 		$("#m2finales").val(v.superficie);
+			// 	}
+			// });
 		});
 
 		$(document).ready(function(){
