@@ -4,49 +4,58 @@
 		<title></title>
 		<meta charset="UTF-8">
 		<style type="text/css">
-			svg{
-				position: absolute;		
-				width: 100%;
-				height: 100%;
-			}
-			img{
-				position: absolute;
-				z-index: -1;
-			}
-			#container{
-				margin: 0 0;
-				padding: 0 0;
-			}
-		</style>
-		<style>
-			.cls-1,.cls-2{fill: none}
-			.cls-1,.cls-2,.cls-3{stroke:#B30000;stroke-width:1.5px;}
-			.cls-1{stroke-miterlimit:10;}
-			.cls-2,.cls-3{stroke-linecap:round;stroke-linejoin:round;}
-			.cls-3{fill:none;}
-		</style>
+		svg{
+			position: absolute;
+			width: 100%;
+			height: 1000px;
+		}
+		img{
+			position: absolute;
+			z-index: -1;
+		}
+		.land:hover{
+			fill:#0f0 !important;
+			opacity: 1;
+		}
+		.land{fill:white;opacity:.1; stroke:#000;stroke-miterlimit:10;}
+		.contorno{opacity: .1;fill: none;}
+	</style>
 	</head>
 	<body>​​
-		<svg >
-	
-			<title>nodxPPLANTAS BAJA BELLANCA 2-Model</title>
-			<path class='cls-3' d='M70.24,753c.86.57,0-712.32,0-712.32H539.08V753Z' transform='translate(-69.49 -38.49)'/>
-			<rect class='cls-1' x='156.75' y='0.75' width='108.96' height='90.72'/><polygon class='cls-1' points='265.71 93.15 156.75 93.51 156.75 202.76 265.71 204.03 265.71 93.15'/><polygon class='cls-1' points='264.76 205.51 156.75 204.03 156.75 312.01 265.71 312.01 264.76 205.51'/><polygon class='cls-2' points='265.23 313.95 158.19 313.95 158.19 394.59 265.71 394.59 265.23 313.95'/><rect class='cls-2' x='156.75' y='394.59' width='108.96' height='109.92'/><rect class='cls-2' x='350.43' y='495.63' width='108.96' height='110.4'/><rect class='cls-2' x='352.11' y='394.59' width='107.28' height='101.04'/><rect class='cls-2' x='350.43' y='206.03' width='108.96' height='109.92'/><polygon class='cls-2' points='459.39 91.47 459.39 200.84 351.27 200.84 350.43 91.47 459.39 91.47'/><polygon class='cls-2' points='457.95 2.19 457.95 88.18 350.51 88.18 350.51 0.75 457.95 2.19'/>
+		
+<svg>
+<path class='contorno' d='M70.24,753c.86.57,0-712.32,0-712.32H539.08V753Z' transform='translate(-69.49 -38.49)'/>
+<rect class='land' x='156.75' y='0.75' width='108.96' height='90.72' id='PB-10'/>
+<polygon class='land' points='265.71 93.15 156.75 93.51 156.75 202.76 265.71 204.03 265.71 93.15' id='PB-9'/>
+<polygon class='land' points='264.76 205.51 156.75 204.03 156.75 312.01 265.71 312.01 264.76 205.51' id='PB-8'/>
+<polygon class='land' points='265.23 313.95 158.19 313.95 158.19 394.59 265.71 394.59 265.23 313.95' id='PB-7'/>
+<rect class='land' x='156.75' y='394.59' width='108.96' height='109.92' id='PB-6'/>
+<rect class='land' x='350.43' y='495.63' width='108.96' height='110.4' id='PB-5'/>
+<rect class='land' x='352.11' y='394.59' width='107.28' height='101.04' id='PB-4'/>
+<rect class='land' x='350.43' y='206.03' width='108.96' height='109.92' id='PB-3'/>
+<polygon class='land' points='459.39 91.47 459.39 200.84 351.27 200.84 350.43 91.47 459.39 91.47' id='PB-2'/>
+<polygon class='land' points='457.95 2.19 457.95 88.18 350.51 88.18 350.51 0.75 457.95 2.19' id='PB-1'/></svg>
 
-		</svg>
+
+
+
+
+
+
+
+
+
+
 			
 		<img id="myimg" src="editPPLANTASBAJABELLANCA2-MODEL.jpg">
-		<script type="text/javascript">
-	// 		var i = document.getElementById('myimg');
-	// ​
-	// 		var i2 = new Image();
-	// 		i2.onload = function() {		  
-	// 		  var svg = document.getElementsByTagName('svg');
-	// 		};
-	// ​
-	// 		document.getElementsByTagName('svg').style.width = i.src;
-	// 		document.getElementsByTagName('svg').style.height = i.height;
-		</script>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+  	<script type="text/javascript">
+  		$(".land").mouseover(function(){
+  			$(this).attr("fill", "red");
+  			$(this).attr("opacity", "1");
+  		});
+  	</script>
 	​
 	</body>
 </html>

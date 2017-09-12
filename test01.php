@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+<?php 
+
+require_once('conexion.php');
+
+$bd = new BD();
+
+$conexion1 = $bd->conexion();
+var_dump($conexion1);
+$conexion = $bd->fetchData("select * from tab_bellanca");
+var_dump($conexion);
+
+echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+
+ ?><!DOCTYPE html>
 <html>
 <head>
 	<title>test</title>
