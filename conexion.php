@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 /**
-* 
+*
 */
 class BD
 {
-	const HOST = 'LOCALHOST';
+	const HOST = '192.168.1.76';
 	const USER = 'root';
 	const PSWD = '';
 	const DATABASE = 'invercity';
@@ -13,7 +13,7 @@ class BD
 	public function conexion()
 	{
 		try {
-			return mysqli_connect(self::HOST, self::USER, self::PSWD, self::DATABASE);	
+			return mysqli_connect(self::HOST, self::USER, self::PSWD, self::DATABASE);
 		} catch (Exception $e) {
 			return "Failed to connect to MySQL: " . $e.message();
 		}
@@ -23,13 +23,13 @@ class BD
 		$consulta = $query;//limpiar la variable
 		$arrayName = array();
 		$conection = $this->conexion();
-		if ($resultado = $conection->query($consulta)) {		    
-		    
+		if ($resultado = $conection->query($consulta)) {
+
 		    foreach ($resultado as $value) {
-		    	
-		     	array_push($arrayName, $value);        
+
+		     	array_push($arrayName, $value);
 		    }
-		    
+
 		}
 
 		$conection->close();

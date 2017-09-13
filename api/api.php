@@ -6,7 +6,7 @@ $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
 $input = json_decode(file_get_contents('php://input'),true);
  
 // connect to the mysql database
-$link = mysqli_connect('localhost', 'root', '', 'invercity');
+$link = mysqli_connect('192.168.1.76', 'root', '', 'invercity');
 mysqli_set_charset($link,'utf8');
  
 // retrieve the table and key from the path

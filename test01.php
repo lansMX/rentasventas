@@ -1,13 +1,14 @@
-<?php 
+<?php
 
 require_once('conexion.php');
 
-$bd = new BD();
+	$bd = new BD();
 
-$conexion = $bd->fetchData("select * from tab_complejopisos where Piso = 'PB'");
-var_dump($conexion);
+	$conexion = $bd->fetchData("select * from tab_complejopisos where Piso = 'PB'");
+	var_dump($conexion);
 
- ?><!DOCTYPE html>
+ ?>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>test</title>
@@ -75,15 +76,15 @@ var_dump($conexion);
 	<div class="header">
 		header
 	</div>
-	
+
 	<div class="content">
 		<div class="menu">
 			menu
 		</div>
 		<div class="mapp">
-			<?= $conexion[0]['SGV']; ?>	
+			<?= $conexion[0]['SVG']; ?>
 			<?= "<img src='".$conexion[0]['Fondo']."'>"; ?>
-		</div>	
+		</div>
 		<div class="calculador">
 			<form name="ejemplo">
 				<label for="m2finals">M <sup>2</sup> FINALES</label>
@@ -126,14 +127,14 @@ var_dump($conexion);
 		</div>
 	</div>
 
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
 
   	<script type="text/javascript">
   		$(".land").mouseover(function(){
   			$(this).attr("fill", "red");
   			$(this).attr("opacity", "1");
   		});
-		
+
 		$(".land").mouseover(function() {
 			var title = $(this).attr('title');
 			$(this).attr('fill', '#f00');
@@ -145,7 +146,7 @@ var_dump($conexion);
 			var title = $(this).attr('title');
 			$(this).attr('fill', '#333');
 			$(this).attr('opacity', '1');
-		});	
+		});
 		$(".land").click(function() {
 			$(this).attr("id");
 			$.ajax({
@@ -159,7 +160,7 @@ var_dump($conexion);
 					console.log(r);console.log("error");
 				}
 			});
-			// var paths = $('.mapp > svg > g').find('path');			
+			// var paths = $('.mapp > svg > g').find('path');
 			// $.each(paths, function(i, v){
 			// 	$(v).removeClass('active');
 			// });
@@ -173,13 +174,13 @@ var_dump($conexion);
 		});
 
 		$(document).ready(function(){
-    
+
 		$("#m2finales").keyup( function(){
 			$('#porcentaje').change(function() {
 				$('#valorporcentaje').val($(this).val());
 				var porcentaje = $('#valorporcentaje').val();
 				var precioc = $('#preciocontado').text();
-				var total = ((precioc * porcentaje)/100).toFixed(2);				
+				var total = ((precioc * porcentaje)/100).toFixed(2);
 				$("#total").html(total);
 			});
 		    	var value = $(this).val();
@@ -195,7 +196,7 @@ var_dump($conexion);
 			var precioc = $('#preciocontado').text();
 			var pagomensual = (precioc / pagomes).toFixed(2);
 			$("#preciomensual").html(pagomensual);
-			
+
 		}
 
 

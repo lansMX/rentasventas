@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,9 +47,15 @@
 		.etiqueta{
 			padding-left: 30px;
 		}
-		svg{
+		/*svg{
 			width: 900px;
 			height: 600px;
+			position: absolute;
+		}*/
+
+		svg{
+			width: 100%;
+			height: 100%;
 			position: absolute;
 		}
 
@@ -163,42 +170,17 @@
 				</table>
 			</form>
 		</div>
-	</div>
-	<svg width="100%" viewBox="0 0 768 447" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
-    <defs>
-        <rect id="path-1" x="0" y="0" width="768" height="447"></rect>
-        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="768" height="447" fill="white">
-            <use xlink:href="#path-1"></use>
-        </mask>
-    </defs>
-    <g id="journocode" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="example">
-            <use id="Rectangle-1" stroke="#50E3C2" mask="url(#mask-2)" stroke-width="42" fill="#4A4A4A" xlink:href="#path-1"></use>
-
-						<!-- add class and title here! -->
-            <circle id="Oval-1" fill="#FF7979" cx="142.5" cy="147.5" r="92.5" class="tooltip" title="I am a circle!"></circle>
-            <polygon id="Star-1" fill="#FFF681" points="384 349 328.748186 378.047597 339.300344 316.523799 294.600687 272.952403 356.374093 263.976201 384 208 411.625907 263.976201 473.399313 272.952403 428.699656 316.523799 439.251814 378.047597" class="tooltip" title="<strong>Stars for the win</strong><br>I am a star!"></polygon>
-            <polygon id="Triangle-1" fill="#A9FFEC" points="619 72 717 223 521 223" class="tooltip" title="<p style='color:#F85D00'>Hell yeah!</p>"></polygon>
-        </g>
-    </g>
-</svg>
+	</div>	
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.number.js"></script>
 	<script type="text/javascript" src="bower_components/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
 
-  <script>
-    $(document).ready(function() {
-        $('.tooltip').tooltipster({
-        // theme: 'tooltipster-punk',
-        contentAsHTML: true
-        });
-    });
-	</script>
+  
 
 	<script type="text/javascript">
 
+		var default_floor = "1";
 		$(document).ready(function(){
 			var min_range = $("#porcentaje").attr("min");
 			var val_range = $("#porcentaje").val(min_range);
@@ -211,11 +193,24 @@
 			$("#preciocontado").number(true, 2);
 			$("#total").number(true, 2);
 			$("#preciomensual").number(true, 2);
-
-
+			loadData(default_floor);
 		});
 
+		function loadData(floor){
+			// api/api.php/tab_complejopisos/1
+			$.ajax({
+				type :  "GET",
+				url  : 	"api/api.php/tab_complejopisos/"+floor,
+				dataType: "JSON",
+				success: function(response){
+					
+					var svg = response.SVG;
+					var fondo = response.Fondo;
 
+					$(".mapp").append(svg + "<img class='imgFondoPlano' src='" + fondo + "'>" );
+				}
+			});
+		}
 
 
 		$(".land").mouseover(function(){
@@ -288,8 +283,6 @@
 			$("#preciomensual").val(pagomensual);
 		}
 
-		// var text = '{"data":[{"superficie":"500","id":"MX-AGU"},{"superficie":"600","id":"MX-BCN"},{"superficie":"700","id":"MX-BCS"},{"superficie":"800","id":"MX-CAM"},{"superficie":"900","id":"MX-CHP"},{"superficie":"100","id":"MX-CHH"},{"superficie":"200","id":"MX-COA"},{"superficie":"300","id":"MX-OCL"},{"superficie":"400","id":"MX-DIF"},{"superficie":"1500","id":"MX-DUR"},{"superficie":"2500","id":"MX-GUA"},{"superficie":"2500","id":"MX-GRO"},{"superficie":"5003","id":"MX-H"},{"superficie":"3500","id":"MX-JAL"},{"superficie":"4500","id":"MX-MEX"},{"superficie":"5500","id":"MX-MIC"},{"superficie":"6500","id":"MX-MOR"},{"superficie":"7500","id":"MX-NAY"},{"superficie":"8500","id":"MX-NLE"},{"superficie":"9500","id":"MX-OAX"},{"superficie":"5430","id":"MX-PUE"},{"superficie":"11500","id":"MX-QUE"},{"superficie":"12500","id":"MX-ROO"},{"superficie":"34500","id":"MX-SLP"},{"superficie":"55400","id":"MX-SIN"},{"superficie":"531500","id":"MX-SON"},{"superficie":"500","id":"MX-TAB"},{"superficie":"500","id":"MX-TAM"},{"superficie":"23500","id":"MX-TLA"},{"superficie":"45500","id":"MX-VER"},{"superficie":"34500","id":"MX-YUC"},{"superficie":"500","id":"MX-ZAC"}]}'
-		// var obj = JSON.parse(text);
 
 		$("#tipoTerreno").change(function(){
 			var tipo = parseInt($(this).val());
@@ -336,25 +329,8 @@
 			}
 		});
 
-		var asipararapido = "";
-		var urlFondo = "";
-    $.getJSON( "datos/catalogo.json", function( data ) {
-      var items = [];
-      var opciones = "";
-
-      var idMap = "<?= $_GET['map']; ?>";
-      $.each( data.catalogo, function( key, val ) {
-      	if (val.id == idMap) {
-      		opciones = 	val.codesvg[0].n0;
-      		asipararapido = val.codesvg[0];
-      		urlFondo = val.imgfondo;
-      	}
-
-      });
-      // <text class='label' id='parteCuerpo' x='10' y='390'>México</text>
-      $(".mapp").append(opciones + "<img class='imgFondoPlano' src='" + urlFondo + "'>" );
-
-    });
+		
+		
 
 		function getAllSuperficie(){
 			$.getJSON( "datos/infedo.json", function( data ) {
@@ -376,28 +352,9 @@
 		    	$("#preciototal").val(total1);
 		    	$("#preciocontado").val(total1);
 				$('#porcentaje').change();
-
-	          //1,381,333
-
-	    //       	for (var i = 0; i < data.data.length; i++) {
-     //      			//console.log(data.data[i]);
-     //      			if(myValue == data.data[i].id){
-					// 	//console.log(data.data[i].superficie);
-					// 	$("#m2finales").val(data.data[i].superficie);
-
-					// 	var value = $("#m2finales").val();
-					// 	var precio = $("#precioxm2").text();
-				 //    	var total1 = value * precio;
-				 //    	//console.log(total1);
-				 //    	$("#preciototal").html(total1);
-				 //    	$("#preciocontado").html(total1);
-					// 	$('#porcentaje').change();
-					// }
-     //      		}
-
 	      	});
 		}
-      </script>
+    </script>
 
 </body>
 </html>
