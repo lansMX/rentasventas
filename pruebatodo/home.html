@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .contorno{fill:none;}
+    .land{fill: #CCC; stroke: #FFF; stroke-width: 0.5; opacity: 0.3;}
+    .land:hover{fill: #b30000;}
+      svg{width: 100%; height: 100%; position: absolute; stroke: #B30000;	stroke-width: 2;}
+    </style>
+  </head>
+  <body>
+  <svg><g><polyline class='contorno' points='0.5 1180.1 1772.46 1180.1 1772.46 0.5 0.5 0.5 0.5 1180.1'/><path id='BN3-01' class='land' d='M303.6,4.56H554.88V40.3H594V4.56H831.36V38.4h79.92L911,280.08H831.36v38.4H911V440.16H187.2v-52.8h27.31a32.11,32.11,0,0,0-30.19-29.52,28.5,28.5,0,0,0,28.32-28.56l-25.2.48V275.52l77.76.12V38.4h38.4Z' transform='translate(3.42 0.08)'/><path id='BN3-02' class='land' d='M187.2,444.48H911V566.16H831.36v38.4H911V846.24H831.36v38.4H911V984H386.16V939.12H4.32V884.64H38.4v-38.4H4.32V604.56H38.4V570.48H187.2V534.72h27.39a29.16,29.16,0,0,0-6.42-18.92c-8.85-10.75-22.25-10.43-23.85-10.36a31.54,31.54,0,0,0,29.9-29.52h-27Z' transform="translate(3.42 0.08)"/><polygon id='BN3-03' class='land' points='7.74 747.45 385.26 747.45 385.26 939.21 7.74 939.21 7.74 884.73 41.82 884.73 41.82 846.33 7.74 846.33 7.74 747.45'/><polygon id='BN3-04' class='land' points='918.78 4.64 1154.7 4.64 1154.7 26.73 1181.34 26.73 1181.34 4.64 1449.42 4.64 1449.42 26.73 1476.06 26.73 1476.06 4.64 1745.82 4.64 1745.82 26.73 1767.9 26.73 1767.9 286.17 1745.82 286.17 1745.82 312.56 1767.9 312.56 1767.9 572 1745.82 572 1745.82 598.64 1767.9 598.64 1767.9 659.37 1510.38 984.09 918.78 983.37 918.78 4.64'/></g></svg>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script type="text/javascript">
+  		$(".land").mouseover(function(){
+  			$("#dataShow").text($(this).attr("id"));
+  		});
+
+  		$(document).ready(function(){
+
+  		});
+  	</script>
+  </body>
+</html>

@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title></title>
 	<style type="text/css">
-		svg{
-			position: absolute;
-			
-
+		.contorno{
+			fill:none;
 		}
-		img{
-			position: absolute;
-			z-index: -1;
+		.land{
+		  fill: #CCC;
+		  stroke: #FFF;
+		  stroke-width: 0.5;
+		}
 
+		.land:hover{fill: #b30000;}
+
+		svg{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+		}
+
+		.activo{
+			fill: #000;
 		}
 
 	</style>
 </head>
 <body>
+	<svg><polygon id="L13-N6" class="land" points="3.03 744.69 123.69 744.69 123.69 570.86 2.75 570.86 3.03 744.69"/><rect id="L12-N6" class="land" x="213.71" y="563.54" width="150.96" height="126.12"/><rect id="L5-N6" class="land" x="213.71" y="437.54" width="150.96" height="126"/>
+		<polygon id="L6-N6" class="land" points="517.79 564.02 364.67 563.54 364.67 437.54 517.91 437.54 517.79 564.02"/><polygon id="L11-N6" class="land" points="517.91 689.66 364.67 689.66 364.67 563.54 517.79 564.02 517.91 689.66"/><polygon id="L10-N6" class="land" points="671.03 689.66 517.91 689.66 517.79 564.02 671.03 564.02 671.03 689.66"/><polygon id="L7-N6" class="land" points="517.91 437.54 517.79 564.02 671.03 564.02 671.03 437.54 517.91 437.54"/><rect id="L8-N6" class="land" x="671.03" y="437.54" width="153.24" height="126.48"/><rect id="L9-N6" class="land" x="671.03" y="564.02" width="153.24" height="125.64"/><rect id="L1-N6" class="land" x="263.99" y="72.02" width="160.44" height="203.28"/><rect id="L2-N6" class="land" x="424.43" y="72.02" width="162.96" height="203.28"/><rect id="L3-N6" class="land" x="587.39" y="72.02" width="162.12" height="203.28"/><rect id="L4-N6" class="land" x="749.51" y="72.02" width="133.68" height="203.28"/><polygon  id="L2-T-N6" class="land" points="960.74 894.63 1107.98 894.6 1108.01 658.7 960.35 658.7 960.74 894.63"/><rect id="L3-T-N6" class="land" x="1266.63" y="562.4" width="132.27" height="266.15"/><rect id="L1-T-N6" class="land" x="1439.52" y="51.32" width="264.98" height="123.65"/><polygon id="" class="contorno" points="4.91 1223.86 1765.55 1223.86 1765.55 0.36 0.36 0.36 0.36 1223.86 4.91 1223.86"/></svg>
 
 
-
-<svg><defs><style>.cls-1,.cls-2,.cls-3{fill:none;}.cls-1,.cls-2{stroke:#000;}.cls-1{stroke-miterlimit:10;}.cls-2,.cls-3{stroke-linecap:round;stroke-linejoin:round;stroke-width:0.72px;}.cls-3{stroke:#939598;}</style></defs><title>Bellanca nivel 6 eps</title><polygon class="cls-1" points="3.03 744.69 123.69 744.69 123.69 570.86 2.75 570.86 3.03 744.69"/><rect class="cls-1" x="213.71" y="563.54" width="150.96" height="126.12"/><rect class="cls-1" x="213.71" y="437.54" width="150.96" height="126"/><polygon class="cls-1" points="517.79 564.02 364.67 563.54 364.67 437.54 517.91 437.54 517.79 564.02"/><polygon class="cls-1" points="517.91 689.66 364.67 689.66 364.67 563.54 517.79 564.02 517.91 689.66"/><polygon class="cls-1" points="671.03 689.66 517.91 689.66 517.79 564.02 671.03 564.02 671.03 689.66"/><polygon class="cls-1" points="517.91 437.54 517.79 564.02 671.03 564.02 671.03 437.54 517.91 437.54"/><rect class="cls-1" x="671.03" y="437.54" width="153.24" height="126.48"/><rect class="cls-1" x="671.03" y="564.02" width="153.24" height="125.64"/><rect class="cls-1" x="263.99" y="72.02" width="160.44" height="203.28"/><rect class="cls-1" x="424.43" y="72.02" width="162.96" height="203.28"/><rect class="cls-1" x="587.39" y="72.02" width="162.12" height="203.28"/><rect class="cls-1" x="749.51" y="72.02" width="133.68" height="203.28"/><polygon class="cls-2" points="960.74 894.63 1107.98 894.6 1108.01 658.7 960.35 658.7 960.74 894.63"/><rect class="cls-2" x="1266.63" y="562.4" width="132.27" height="266.15"/><rect class="cls-2" x="1439.52" y="51.32" width="264.98" height="123.65"/><polygon class="cls-3" points="4.91 1223.86 1765.55 1223.86 1765.55 0.36 0.36 0.36 0.36 1223.86 4.91 1223.86"/></svg>
-
-
-	<img id="myimg" src="Bellanca nivel 6 eps.jpg">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(".land").mouseover(function(){			
+			console.log($(this).attr("id"));
+		});
+	</script>	
 
 	
 <!-- 
