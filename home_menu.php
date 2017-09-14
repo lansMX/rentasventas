@@ -1,3 +1,8 @@
+<!-- <?php 
+  // require_once('conexion.php');
+  // $bd = new BD();
+  // $conexion = $bd->fetchData("select * from cat_complejos");
+?>  -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,93 +10,80 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <style media="screen">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <style>
       body{
-        background-color: #3e3e3e;
-        color: #FFF;
         font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
       }
-
-      .container {
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
+      .top{
+        left: 0px;
+        margin-top: -8px;
+        width: 100%;
+        height: 40px;
+        background-color: #333;
+        position: absolute;
       }
-
-      @media (min-width: 768px) {
-        .container {
-          width: 750px;
-        }
+      .menu{
+        height: 100%;
+        width: 17%;
+        position: absolute;
+        z-index: 1;
+        top: 40px;
+        left: 0;
+        background-color: #555;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 20px;
       }
-      @media (min-width: 992px) {
-        .container {
-          width: 970px;
-        }
+      .menu a{
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 22px;
+        color: #f1f1f1;
+        display: block;
+        transition: 0.3s;
       }
-      @media (min-width: 1200px) {
-        .container {
-          width: 1170px;
-        }
+      .menu a:hover{
+        background-color: #e02222;
+        color: #f1f1f1;
       }
-
-
-      .contenedorfoto {         
-         float:left;
-         width:200px;
-         height:180px;
-         margin: 10px;
-         padding:5px;
-         color: #000;
-         background-color:#f5f7f9;
-         border-right: #a5a7aa solid 1px;
-         border-bottom: #a5a7aa solid 1px;
-         text-align:center;
+      .icon{
+        margin-left: 75%;
       }
-
-      #menu{
-        display: inline-block;
+      .contenedor{
+        margin-left:17%;
       }
-
-      .contenedorfoto > a > img{
-        width: 200px;
-      }
-
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1 style="font-weight:normal">Renta y venta</h1>
-      <hr>
-      <div id="menu"></div>
-
-      <script type="text/javascript">
-        $.getJSON( "datos/catalogo.json", function( data ) {
-          var items = [];
-          var opciones = "";
-          console.log(data.catalogo);
-
-          $.each( data.catalogo, function( key, val ) {
-
-            opciones += "<div class='contenedorfoto'>" +
-                "<a href='javascript:void(0)' onclick='moreDetails("+val.id+")'>" +
-                  "<img src='" + val.logo + "' border='0' alt=''/>" +
-                "</a>" +
-                "<br/>" +
-                "<span>" + val.titulo + "</span>" +
-              "</div>";
-          });
-         
-          $("#menu").append(opciones);
-
-        });
-
-        function moreDetails(id){
-          window.location.href = "index.php?map="+id;
-        }
-      </script>
-      
-
+    <!--general -->
+    <div>
+      <!-- menu lateral / barra superior-->
+      <div class="top"></div>
+      <div class="menu">
+        <h3><i class="fa fa-bars icon fa-lg"></i></h3>
+        <a href="#"><i class="fa fa-home" aria-hidden="true"></i><span> Inicio</span></a>
+        <a href="#" onclick="ventas()"><i class="fa fa-money" aria-hidden="true"></i><span> Ventas</span></a>
+      </div>
+      <!-- contenedor-->
+      <div class="contenedor" >
+        <div id="ventas">
+          VENTAS
+        </div>
+        <!--contenedor planos-->
+        <div id="contenedor_planos" style="display: none;">
+        </div>
+        <!--fin contendor planos-->
+      </div>
+      <!-- fin contenedor-->
     </div>
+    <!-- fin general -->
+  </body>
+  <script type="text/javascript">
+  // $(document).ready(function(){});
+  function ventas(){
+    $("#ventas").css({"display":"block"});
+  }
+  </script>
   </body>
 </html>
